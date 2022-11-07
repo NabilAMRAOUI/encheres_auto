@@ -1,0 +1,8 @@
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: lightgray;
+    list-style-type: none;
+    text-decoration: none;
+}
