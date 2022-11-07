@@ -1,6 +1,3 @@
-<?php 
-require __DIR__."/pdo.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
