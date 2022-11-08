@@ -3,7 +3,7 @@ require __DIR__."/classes/pdo.php";
 
 ?>
 
-<a href="ajouter-film.php">Ajouter un film</a>
+
 
 <!DOCTYPE html>
 <html lang="en">
