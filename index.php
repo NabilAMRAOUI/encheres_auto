@@ -1,5 +1,5 @@
 <?php 
-require __DIR__."/pdo.php";
+require __DIR__."/classes/pdo.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +18,7 @@ require __DIR__."/pdo.php";
                 <li><a href="encheres.php">Encheres en Cours</a></li>
                 <li><a href="voitures.php">Voitures</a></li>
                 <li><a href="connexion.php">Connexion/Inscription</a></li>
+                <li><a href="ajouter-annonce-enchere.php">Ajouter Annonce / Proposer Enchère</a></li>
             </ul>
         </nav>
     </header>

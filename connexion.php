@@ -1,5 +1,5 @@
 <?php 
-require __DIR__."/pdo.php";
+require __DIR__."/classes/pdo.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
