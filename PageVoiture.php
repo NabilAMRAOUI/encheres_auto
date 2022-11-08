@@ -1,6 +1,7 @@
 <?php 
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/voiture.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@ require __DIR__."/classes/voiture.php";
         <?php require __DIR__."/classes/navBar.php" ?>
     </header>
 
-    <form action="voitures.php" method="post">
+    <form action="PageVoiture.php" method="post">
        
         <p>
             <label for="modele">Modele</label>
@@ -31,15 +32,10 @@ require __DIR__."/classes/voiture.php";
             <input type="text" name="puissance" id="puissance">
         </p>
         <p>
-            <label for="annee">Date de fin de l'enchère</label>
+            <label for="annee">Date de la voiture</label>
             <input type="text" name="annee" id="annee">
         </p>
-        <p>
-            <label for="description">Date de fin de l'enchère</label>
-            <input type="text" name="description" id="description">
-        </p>
-
-        <label for="utilisateur_id">Annonce</label>
+        <label for="utilisateur_id">utilisateur_id</label>
         <select name="utilisateur_id" id="utilisateur_id">
             <?php foreach ($utilisateurs as $key =>$value){ ?>
                 <option value="<?=$value["id"]?>"><?=$value["nom"]." ".$value["prenom"] ?></option>
@@ -54,8 +50,8 @@ require __DIR__."/classes/voiture.php";
 
         if(isset($_POST["submitVoiture"])){
 
-            if($resultat){
-                echo "Enchère rajouter";
+            if($voitures){
+                echo "Enchère rajouté";
             } else {
                 echo "Erreur lors de l'ajout de l'enchère";
             }
