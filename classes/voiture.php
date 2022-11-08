@@ -6,7 +6,7 @@ $query3->execute();
 
 $utilisayeurs = $query3->fetchAll(PDO::FETCH_ASSOC);
 
-if(isset($_POST["submitAnnonce"])){
+if(isset($_POST["submitVoiture"])){
     
 
     $query3 = $pdo->prepare("INSERT INTO `voiture` (`modele`, `marque`, `puissance`, `annee`, `description`, `utilisateur_id`) VALUES (':modele', ':marque', ':puissance', ':annee', ':description', ':utilisateur_id');");

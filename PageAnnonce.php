@@ -1,28 +1,16 @@
 <?php 
 require __DIR__."/classes/pdo.php";
+require __DIR__."/classes/annonce.php";
 
-if (isset($_GET["id"])){
+$query = $pdo->prepare("SELECT * 
+FROM `annonce`
+JOIN voiture ON annonce.voiture_id = voiture.id;");
 
-    $query = $pdo->prepare("SELECT * FROM annonce WHERE id=:id");
-    $query->bindValue(':id',$_GET["id"],PDO::PARAM_INT);
-    $query->execute();
+$query->execute();
 
-    $annonce = $query->fetch(PDO::FETCH_ASSOC);
+$annonces = $query->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-} else {
-    echo "Erreur de parametre url manquant";
-    
-}
-
-$query1 = $pdo->prepare("SELECT * FROM annonce");
-
-$query1->execute();
-
-$annonces = $query1->fetchAll(PDO::FETCH_ASSOC);
-
-
+   
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +28,17 @@ $annonces = $query1->fetchAll(PDO::FETCH_ASSOC);
 
     <ul>
         <li>
-         <?= 
-            $annonce['prix-depart']; 
-            $annonce['date-fin'] 
-          ?>
+            <?php
+            foreach ($annonces as $key => $value){ ?>
+            <p><?=$value["prix-depart"];?></p>
+            <p><?=$value["date-fin"];?></p>
+            <p><?=$value["modele"];?></p>
+            <p><?=$value["marque"];?></p>
+           <?php } ?>
         </li>
     </ul>
+
+    <a href="ajouter-annonce-anchere.php">Ajouter une annonce</a>
 
 
     

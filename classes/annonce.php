@@ -15,8 +15,12 @@ if(isset($_POST["submitAnnonce"])){
     $query->bindValue(':voiture_id',$_POST["voiture_id"],PDO::PARAM_INT);
     $resultat = $query->execute();
 
-    var_dump($resultat);
 }
+
+?>
+
+
+
 
 
 
