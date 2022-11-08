@@ -5,6 +5,6 @@
                 <li><a href="encheres.php">Encheres en Cours</a></li>
                 <li><a href="voitures.php">Voitures</a></li>
                 <li><a href="connexion.php">Connexion/Inscription</a></li>
-            </ul>
+                <li><a href="ajouter-annonce-enchere.php">Ajouter Annonce / Proposer Enchère</a></li>
         </nav>
     </header>
