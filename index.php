@@ -7,23 +7,24 @@ require __DIR__."/classes/pdo.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css\style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.php">Acceuil</a></li>
-                <li><a href="encheres.php">Encheres en Cours</a></li>
-                <li><a href="voitures.php">Voitures</a></li>
-                <li><a href="connexion.php">Connexion/Inscription</a></li>
-                <li><a href="ajouter-annonce-enchere.php">Ajouter Annonce / Proposer Enchère</a></li>
-            </ul>
+            <?php require __DIR__."/classes/navBar.php" ?>
         </nav>
-    </header>
-    <main>
-
+       
+        
+    <main class="main">
+        <div class="img-container">
+                <div class="text-main">
+                    <h1>AUCTION CARS</h1>
+                    <P>Vente aux encheres de voitures</P>
+                </div>
+                
+        </div>
     </main>
     <footer>
 
