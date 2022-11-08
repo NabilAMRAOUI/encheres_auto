@@ -1,7 +1,7 @@
 <?php 
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/annonce.php";
-require __DIR__."/classes/encheres.php";
+require __DIR__."/classes/enchere.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ require __DIR__."/classes/encheres.php";
 
     <h1>Ajouter une annonce ou proposer une enchère</h1>
     <h2>Formulaire pour ajouter une annonce</h2>
-    <form action="ajouter-annonce-enchere.php" method="post">
+    <form action="PageAnnonce.php" method="post">
         <p>
             <label for="prixDepart">Prix de départ</label>
             <input type="text" name="prixDepart" id="prixDepart">
@@ -36,6 +36,8 @@ require __DIR__."/classes/encheres.php";
                 <option value="<?=$value["id"]?>"><?=$value["marque"]." ".$value["modele"] ?></option>
           <?php } ?>
         </select>
+
+
 
         <input type="submit" value="Ajouter" name="submitAnnonce">
     </form>
@@ -95,3 +97,4 @@ require __DIR__."/classes/encheres.php";
     ?>
 </body>
 </html>
+
