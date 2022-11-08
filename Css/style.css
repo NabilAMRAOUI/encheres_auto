@@ -1,4 +1,4 @@
-*/{
+*{
     box-sizing: border-box;
 }
 body{
@@ -102,3 +102,7 @@ a:hover {
 }
 
 
+.annonce-li{
+    width: 40vw;
+    
+}
