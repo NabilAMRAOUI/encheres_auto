@@ -18,5 +18,8 @@ if(isset($_POST["submitAnnonce"])){
     var_dump($resultat);
 }
 
-?>
+
+
+
+
 

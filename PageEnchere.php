@@ -1,3 +1,10 @@
+<?php
+require __DIR__."/classes/pdo.php";
+
+?>
+
+<a href="ajouter-film.php">Ajouter un film</a>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,5 +18,9 @@
     <header>
         <?php require __DIR__."/classes/navBar.php" ?>
     </header>
+
+    <?php 
+    
+    ?>
 </body>
 </html>
