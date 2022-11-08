@@ -25,7 +25,7 @@ require __DIR__."/classes/enchere.php";
 <div class="form-css" >
     <div class="form-position">
         <h2>Formulaire pour ajouter une annonce</h2>
-        <form action="ajouter-annonce-enchere.php" method="post">
+        <form action="PageAnnonce.php" method="post">
             <p>
                 <label for="prixDepart">Prix de départ</label>
                 <input type="text" name="prixDepart" id="prixDepart">
@@ -101,10 +101,7 @@ require __DIR__."/classes/enchere.php";
             }
     
         }
-    ?>
 
-    
-    <?php 
 
         if(isset($_POST["submitEnchere"])){
 
