@@ -1,8 +1,104 @@
+*/{
+    box-sizing: border-box;
+}
+body{
+   
+    margin: 0px;
+    margin-top: 0px;
+    padding: 0%;
+}
+
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    
+}
+nav img{
+    height: 10vh;
+    width: 50px;
+}
 ul{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: lightgray;
     list-style-type: none;
-    text-decoration: none;
+    width: 100vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-items: center;
+    align-content: center;
+    
+
 }
+li{
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    text-shadow: 1px 1px 0px white;
+    color: black;
+    height: 10vh;
+    align-items: center;
+    align-content: center;
+    
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    
+    
+}
+a:hover {
+    background-color: red;
+    color: white;
+    text-shadow: none;
+  }
+.text-annonce{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.main{
+    width: 100vw;
+}
+.img-container{
+    background-image: url(../img/vente-aux-encheres1-vectorfusionart-stockadobe-com-960x640.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 600px;
+
+}
+.text-main{
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    text-shadow: 1px 1px 0px white;
+}
+.form-css{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.form-position{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 75px;
+}
+
+
