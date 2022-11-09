@@ -1,7 +1,7 @@
 <?php 
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/annonce.php";
-require __DIR__."/classes/enchere.php";
+
 
 
 ?>
@@ -104,18 +104,8 @@ require __DIR__."/classes/enchere.php";
     
         }
 
-
-        if(isset($_POST["submitEnchere"])){
-
-            if($resultat){
-                echo '<p class="confirm">Enchère rajouter</p>';
-            } else {
-                echo "Erreur lors de l'ajout de l'enchère";
-            }
-
-        }
     ?>
-    <p class="confirm">Enchère rajouter</p>
+    
 </body>
 </html>
 
