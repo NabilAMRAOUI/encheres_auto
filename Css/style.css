@@ -34,7 +34,7 @@ ul{
     
 
 }
-li{
+p{
     display: flex;
     flex-direction: row;
     font-size: x-large;
