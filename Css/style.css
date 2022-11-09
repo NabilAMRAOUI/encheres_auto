@@ -20,7 +20,7 @@ nav img{
     height: 10vh;
     width: 50px;
 }
-ul{
+nav{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -45,6 +45,7 @@ p{
     align-content: center;
     
 }
+
 
 a{
     text-decoration: none;
@@ -116,4 +117,9 @@ a:hover {
 }
 .navbar-connexion{
     margin-bottom: 20px;
+}
+
+.showAnno{
+    display: flex;
+    flex-direction: row;
 }
