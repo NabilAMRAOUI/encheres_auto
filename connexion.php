@@ -28,38 +28,42 @@ $resultat = $query->execute();
   <header class="navbar-connexion">
       <?php require __DIR__."/classes/navBar.php" ?>
   </header>
-  <div class="form-css1">
-    <div class="form-position">
-      <p>
+
+  <section>
+    <h1>INSCRIPTION</h1>
+    <div class="form-css1">
+      <div class="form-position">
         <form action="" method="post">
-        <label for=""> Inscription</label>
-      </p>
-      <p>
-        <label for="">
-          Nom <input type="text" name="nom">
-        </label>
-      </p>
-      <p>
-        <label for="">
-        Prénom   <input type="text" name="prenom">
-        </label>
-      </p>
-      <p>
-        <label for="">
-        Email  <input type="text" name="email">
-        </label>
-      </p>
-      <p>
-        <label for="">
-        Mot de passe  <input type="text" name="mdp">
-        </label>
-      </p>
-      <input type="submit"  name="submitInscription">
-    </form>
+    
+          <p>
+            <label for="">
+              Nom <input type="text" name="nom">
+            </label>
+          </p>
+          <p>
+            <label for="">
+            Prénom   <input type="text" name="prenom">
+            </label>
+          </p>
+          <p>
+            <label for="">
+            Email  <input type="text" name="email">
+            </label>
+          </p>
+          <p>
+            <label for="">
+            Mot de passe  <input type="text" name="mdp">
+            </label>
+          </p>
+          <input type="submit"  name="submitInscription">
+        </form>
+      </div> 
     </div>
+  </section>
+  
       
 
-    <?php
+  <?php
   if (isset($_POST["submitInscription"])) {
     if ($resultat) {
       echo "Bienvenue";
@@ -71,6 +75,5 @@ $resultat = $query->execute();
   ?>
 
 
-  </div>
 </body>
 </html>

@@ -91,10 +91,12 @@ a:hover {
     justify-content: space-around;
 }
 .form-css1{
-    margin-top: 20px;
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    width: 500px;
+    height: 400px;
 }
 
 .form-position{
@@ -116,4 +118,21 @@ a:hover {
 }
 .navbar-connexion{
     margin-bottom: 20px;
+}
+
+button{
+    border-radius: 75px;
+    color: white;
+    background-color: red;
+    padding: 5px;
+}
+button a {
+    color: white;
+}
+.block-annonce{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 40%;
 }
