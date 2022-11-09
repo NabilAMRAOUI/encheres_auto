@@ -2,7 +2,7 @@
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/session.php";
 
-require __DIR__."/classes/enchere.php";
+require __DIR__."/classes/annonce.php";
 
 
 if (isset($_SESSION['id_utilisatateur'])) {
