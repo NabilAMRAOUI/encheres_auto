@@ -2,6 +2,8 @@
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/annonce.php";
 require __DIR__."/classes/enchere.php";
+
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@ require __DIR__."/classes/enchere.php";
 <div class="form-css" >
     <div class="form-position">
         <h2>Formulaire pour ajouter une annonce</h2>
-        <form action="PageAnnonce.php" method="post">
+        <form action="ajouter-annonce-enchere.php" method="post">
             <p>
                 <label for="prixDepart">Prix de départ</label>
                 <input type="text" name="prixDepart" id="prixDepart">
@@ -106,13 +108,14 @@ require __DIR__."/classes/enchere.php";
         if(isset($_POST["submitEnchere"])){
 
             if($resultat){
-                echo "Enchère rajouter";
+                echo '<p class="confirm">Enchère rajouter</p>';
             } else {
                 echo "Erreur lors de l'ajout de l'enchère";
             }
 
         }
     ?>
+    <p class="confirm">Enchère rajouter</p>
 </body>
 </html>
 
