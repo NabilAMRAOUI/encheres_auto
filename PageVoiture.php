@@ -35,6 +35,10 @@ require __DIR__."/classes/voiture.php";
             <label for="annee">Date de la voiture</label>
             <input type="text" name="annee" id="annee">
         </p>
+        <p>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description">
+        </p>
         <label for="utilisateur_id">utilisateur_id</label>
         <select name="utilisateur_id" id="utilisateur_id">
             <?php foreach ($utilisateurs as $key =>$value){ ?>
@@ -50,7 +54,7 @@ require __DIR__."/classes/voiture.php";
 
         if(isset($_POST["submitVoiture"])){
 
-            if($voitures){
+            if($resultat){
                 echo "Enchère rajouté";
             } else {
                 echo "Erreur lors de l'ajout de l'enchère";

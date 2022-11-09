@@ -25,43 +25,52 @@ $resultat = $query->execute();
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <?php require __DIR__."/classes/navBar.php" ?>
-    </header>
-<div>
-    <form action="" method="post">
-    <label for=""> Inscription</label>
+  <header class="navbar-connexion">
+      <?php require __DIR__."/classes/navBar.php" ?>
+  </header>
+  <div class="form-css1">
+    <div class="form-position">
+      <p>
+        <form action="" method="post">
+        <label for=""> Inscription</label>
+      </p>
+      <p>
+        <label for="">
+          Nom <input type="text" name="nom">
+        </label>
+      </p>
+      <p>
+        <label for="">
+        Prénom   <input type="text" name="prenom">
+        </label>
+      </p>
+      <p>
+        <label for="">
+        Email  <input type="text" name="email">
+        </label>
+      </p>
+      <p>
+        <label for="">
+        Mot de passe  <input type="text" name="mdp">
+        </label>
+      </p>
+      <input type="submit"  name="submitInscription">
+    </form>
+    </div>
+      
 
-    <label for="">
-        Nom <input type="text" name="nom">
-    </label>
+    <?php
+  if (isset($_POST["submitInscription"])) {
+    if ($resultat) {
+      echo "Bienvenue";
+    }else{
+  echo "Erreur";
 
-    <label for="">
-      Prénom   <input type="text" name="prenom">
-    </label>
-
-    <label for="">
-      Email  <input type="text" name="email">
-    </label>
-
-    <label for="">
-      Mot de passe  <input type="text" name="mdp">
-    </label>
-    <input type="submit"  name="submitInscription">
-   </form>
-
-   <?php
-if (isset($_POST["submitInscription"])) {
-  if ($resultat) {
-    echo "Bienvenue";
-  }else{
-echo "Erreur";
-
+    }
   }
-}
-?>
+  ?>
 
 
-</div>
+  </div>
 </body>
 </html>
