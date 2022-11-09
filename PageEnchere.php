@@ -1,7 +1,8 @@
 <?php
 require __DIR__."/classes/pdo.php";
-
+require __DIR__."/classes/annonce.php";
 require __DIR__."/classes/enchere.php";
+
 
 $query = $pdo->prepare("SELECT annonce.`id`,annonce.`prix-depart`,annonce.`date-fin`,annonce.voiture_id,voiture.marque,voiture.modele,voiture.puissance,voiture.annee,voiture.description
 FROM `annonce`
@@ -34,13 +35,13 @@ $annonce = $query->fetch(PDO::FETCH_ASSOC);
 
     
 
-    <p>Prix de départ: <?=$value["prix-depart"];?></p>               
-    <p>Date de fin de l'enchère: <?=$value["date-fin"];?></p>
-    <p>Modele: <?=$value["modele"];?></p>
-    <p>Marque: <?=$value["marque"];?></p>
-    <p>Puissance: <?=$value["puissance"];?></p>
-    <p>Annee: <?=$value["annee"];?></p>
-    <p>Description: <?=$value["description"];?></p>
+    <p>Prix de départ: <?=$annonce["prix-depart"];?></p>               
+    <p>Date de fin de l'enchère: <?=$annonce["date-fin"];?></p>
+    <p>Modele: <?=$annonce["modele"];?></p>
+    <p>Marque: <?=$annonce["marque"];?></p>
+    <p>Puissance: <?=$annonce["puissance"];?></p>
+    <p>Annee: <?=$annonce["annee"];?></p>
+    <p>Description: <?=$annonce["description"];?></p>
 
 
 
