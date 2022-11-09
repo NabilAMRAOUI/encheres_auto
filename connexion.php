@@ -72,14 +72,7 @@ if(isset($_POST["submitConnexion"])){
    <?php
 
 
-// if (isset($_POST["submitConnexion"])) {
-//     $query = $pdo->prepare("SELECT  `nom`, `prenom` FROM `utilisateur` WHERE email = :email");
-//     $query->bindValue(':email',$_POST["email"],PDO::PARAM_STR);
-//     $query->execute();
-//     $bienvenue = $query->fetch(PDO::FETCH_ASSOC);
-//     echo 'Bonjour ' .$_SESSION['nom']. ',
-//      ' .$_SESSION['prenom'];
-// }
+
 ?>
 
 
