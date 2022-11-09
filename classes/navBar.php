@@ -1,4 +1,7 @@
 <header>
+    <?php
+
+    ?>
         <nav>
             <ul>
                 <li><a href="index.php">Acceuil</a></li>

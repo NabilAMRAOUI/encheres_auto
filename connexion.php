@@ -1,17 +1,42 @@
 <?php 
 require __DIR__."/classes/pdo.php";
-session_start();
+require __DIR__."/classes/session.php";
 
-if(isset($_POST["submitInscription"])){
-  
-  $query = $pdo->prepare("INSERT INTO `utilisateur`( `nom`, `prenom`, `email`,`mdp`) VALUES (:nom,:prenom,:email,:mdp)");
-$query->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
-$query->bindValue(':prenom', $_POST["prenom"],PDO::PARAM_STR);
-$query->bindValue(':email', $_POST["email"],PDO::PARAM_STR);
-$query->bindValue(':mdp', $_POST["mdp"],PDO::PARAM_STR);
-$resultat = $query->execute();
+
+
+
+
+if(isset($_POST["submitConnexion"])){
+
+    $query = $pdo->prepare("SELECT `id`, `email`, `mdp` FROM `utilisateur` WHERE email = :email");
+    $query->bindValue(':email',$_POST["email"],PDO::PARAM_STR);
+    $query->execute();
+    $utilisateur = $query->fetch(PDO::FETCH_ASSOC);
+   
+
+    if ($utilisateur) {
+        $hash = $utilisateur['mdp'];
+
+        if (password_verify($_POST['mdp'] ,$hash)) {
+            echo "Mots de passe  valide";
+            $_SESSION["id_utilisatateur"] = $utilisateur["id"];
+            $_SESSION["email_utilisateur"] = $utilisateur["email"];
+
+
+        } else {
+            echo "Mots de passe non valide";
+        }
+    }else {
+        echo "utilisateur non valide";
+    }
+
+   
+
+   
+
 
 }
+
 
 
 ?>
@@ -30,15 +55,9 @@ $resultat = $query->execute();
     </header>
 <div>
     <form action="" method="post">
-    <label for=""> Inscription</label>
+    <label for=""> Connexion</label>
 
-    <label for="">
-        Nom <input type="text" name="nom">
-    </label>
-
-    <label for="">
-      Prénom   <input type="text" name="prenom">
-    </label>
+   
 
     <label for="">
       Email  <input type="text" name="email">
@@ -47,18 +66,20 @@ $resultat = $query->execute();
     <label for="">
       Mot de passe  <input type="text" name="mdp">
     </label>
-    <input type="submit"  name="submitInscription">
+    <input type="submit"  name="submitConnexion">
    </form>
 
    <?php
-if (isset($_POST["submitInscription"])) {
-  if ($resultat) {
-    echo "Bienvenue";
-  }else{
-echo "Erreur";
 
-  }
-}
+
+// if (isset($_POST["submitConnexion"])) {
+//     $query = $pdo->prepare("SELECT  `nom`, `prenom` FROM `utilisateur` WHERE email = :email");
+//     $query->bindValue(':email',$_POST["email"],PDO::PARAM_STR);
+//     $query->execute();
+//     $bienvenue = $query->fetch(PDO::FETCH_ASSOC);
+//     echo 'Bonjour ' .$_SESSION['nom']. ',
+//      ' .$_SESSION['prenom'];
+// }
 ?>
 
 
