@@ -6,6 +6,7 @@ $query1->execute();
 
 $voitures = $query1->fetchAll(PDO::FETCH_ASSOC);
 
+
 if(isset($_POST["submitAnnonce"])){
 
     $query = $pdo->prepare("INSERT INTO `annonce` (`prix-depart`, `date-fin`,voiture_id) VALUES (:prixDepart,:dateFin,:voiture_id)");
