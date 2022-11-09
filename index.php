@@ -11,20 +11,20 @@ require __DIR__."/classes/pdo.php";
     <title>Document</title>
 </head>
 <body>
-   
-    
-    
-    <main class="main">
+    <header>
         <nav>
             <?php require __DIR__."/classes/navBar.php" ?>
         </nav>
         <div class="img-container">
-                <div class="text-main">
-                    <h1>AUCTION CARS</h1>
-                    <P>Vente aux encheres de voitures</P>
-                </div>
-                
+            <div class="text-main">
+                <h1>AUCTION CARS</h1>
+                <P>Vente aux encheres de voitures</P>
+            </div>
         </div>
+    </header>
+   
+    <main class="main">
+                
     </main>
     <footer>
 

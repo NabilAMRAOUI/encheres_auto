@@ -27,7 +27,7 @@ $annonces = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -52,9 +52,14 @@ $annonces = $query->fetchAll(PDO::FETCH_ASSOC);
             </li>
         </ul>
     </div>
-    
 
-    <a href="ajouter-annonce-enchere.php">Ajouter une annonce</a>
+    <div class="block-annonce">
+        <h1>AJOUTER UNE ANNONCE</h1>
+        <button><a href="ajouter-annonce-enchere.php">Ajouter une annonce</a></button>
+    </div>
+    
+    
+    
 
 
     

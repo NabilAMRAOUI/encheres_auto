@@ -1,12 +1,35 @@
 <?php 
 require __DIR__."/classes/pdo.php";
-require __DIR__."/classes/annonce.php";
+require __DIR__."/classes/session.php";
+
+require __DIR__."/classes/enchere.php";
 
 
+if (isset($_SESSION['id_utilisatateur'])) {
+    echo 'utilsateur connecté';
+}
+
+
+$query1 = $pdo->prepare("SELECT * FROM `voiture` ORDER BY marque ASC");
+$resultat = $query1->execute();
+$voitures = $query1->fetchAll(PDO::FETCH_ASSOC);
+if(isset($_POST["submitAnnonce"])){
+
+
+
+    $query = $pdo->prepare("INSERT INTO annonce (prix-depart, date-fin,voiture_id) VALUES (:prix_depart,:date_fin,:voiture_id)");
+    $query->bindValue(':prix_depart',$_POST["prixDepart"],PDO::PARAM_INT);
+    $query->bindValue(':date_fin',$_POST["dateFin"],PDO::PARAM_INT);
+    $query->bindValue(':voiture_id',$_POST["voiture_id"],PDO::PARAM_INT);
+    $annonces = $query->execute();
+
+  
+}
 
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +43,7 @@ require __DIR__."/classes/annonce.php";
     <?php require __DIR__."/classes/navBar.php" ?>
     </header>
 
-<div class="text-annonce">
+    <div class="text-annonce">
     <h1>Ajouter une annonce ou proposer une enchère</h1>
     
 </div>
@@ -48,6 +71,7 @@ require __DIR__."/classes/annonce.php";
             </p>
             
         </form>
+
 
 
 
@@ -96,7 +120,7 @@ require __DIR__."/classes/annonce.php";
     <?php 
         if(isset($_POST["submitAnnonce"])){
 
-            if($resultat){
+            if($annonces){
                 echo "Annonce rajouter";
             } else {
                 echo "Erreur lors de l'ajout de l'annonce";
