@@ -40,9 +40,14 @@ $annonces = $query->fetchAll(PDO::FETCH_ASSOC);
             </li>
         </ul>
     </div>
-    
 
-    <a href="ajouter-annonce-enchere.php">Ajouter une annonce</a>
+    <div class="block-annonce">
+        <h1>AJOUTER UNE ANNONCE</h1>
+        <button><a href="ajouter-annonce-enchere.php">Ajouter une annonce</a></button>
+    </div>
+    
+    
+    
 
 
     

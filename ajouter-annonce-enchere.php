@@ -18,7 +18,7 @@ require __DIR__."/classes/enchere.php";
     <?php require __DIR__."/classes/navBar.php" ?>
     </header>
 
-<div class="text-annonce">
+    <div class="text-annonce">
     <h1>Ajouter une annonce ou proposer une enchère</h1>
     
 </div>
