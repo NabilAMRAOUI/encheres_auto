@@ -1,12 +1,12 @@
 <header>
         <nav>
             <ul>
-                <li><a href="index.php">Acceuil</a></li>
-                <li><a href="PageEnchere.php">Encheres en Cours</a></li>
-                <li><a href="PageVoiture.php">Voitures</a></li>
-                <li><a href="connexion.php">Connexion/Inscription</a></li>
-                <li><a href="PageAnnonce.php">Annonce</a></li>
-                <li><a href="ajouter-annonce-enchere.php">Ajouter Annonce/Proposer Enchère</a></li>
+                <p><a href="index.php">Acceuil</a></p>
+                <p><a href="PageEnchere.php">Encheres en Cours</a></p>
+                <p><a href="PageVoiture.php">Voitures</a></p>
+                <p><a href="connexion.php">Connexion/Inscription</a></p>
+                <p><a href="PageAnnonce.php">Annonce</a></p>
+                <p><a href="ajouter-annonce-enchere.php">Ajouter Annonce/Proposer Enchère</a></p>
             </ul>
         </nav>
     </header>

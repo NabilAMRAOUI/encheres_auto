@@ -1,4 +1,4 @@
-*/{
+*{
     box-sizing: border-box;
 }
 body{
@@ -24,7 +24,7 @@ ul{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: lightgray;
+    background-color: transparent;
     list-style-type: none;
     width: 100vw;
     margin-top: 0px;
@@ -34,7 +34,7 @@ ul{
     
 
 }
-li{
+p{
     display: flex;
     flex-direction: row;
     font-size: x-large;
@@ -90,7 +90,15 @@ a:hover {
     flex-direction: row;
     justify-content: space-around;
 }
+.form-css1{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .form-position{
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,3 +110,10 @@ a:hover {
 }
 
 
+.annonce-li{
+    width: 40vw;
+    
+}
+.navbar-connexion{
+    margin-bottom: 20px;
+}
