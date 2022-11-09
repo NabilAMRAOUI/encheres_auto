@@ -16,10 +16,12 @@ nav{
     align-items: center;
     
 }
-nav img{
-    height: 10vh;
-    width: 50px;
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
 nav{
     display: flex;
     flex-direction: row;
@@ -31,13 +33,12 @@ nav{
     margin-bottom: 0px;
     align-items: center;
     align-content: center;
-    
-
 }
 p{
     display: flex;
     flex-direction: row;
     font-size: x-large;
+    justify-content: space-between;
     text-shadow: 1px 1px 0px white;
     color: black;
     height: 10vh;
