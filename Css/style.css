@@ -24,7 +24,7 @@ ul{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: lightgray;
+    background-color: transparent;
     list-style-type: none;
     width: 100vw;
     margin-top: 0px;
