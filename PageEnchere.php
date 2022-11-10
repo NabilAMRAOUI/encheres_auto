@@ -2,12 +2,15 @@
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/annonce.php";
 require __DIR__."/classes/enchere.php";
+require __DIR__."/classes/session.php";
 
+var_dump($_SESSION);
 
 $query = $pdo->prepare("SELECT annonce.`id`,annonce.`prix-depart`,annonce.`date-fin`,annonce.voiture_id,voiture.marque,voiture.modele,voiture.puissance,voiture.annee,voiture.description
 FROM `annonce`
 JOIN voiture ON annonce.voiture_id = voiture.id
-WHERE annonce.id = 1;");
+WHERE annonce.id = :id;");
+$query->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
 
 $query->execute();
 
@@ -16,7 +19,8 @@ $annonce = $query->fetch(PDO::FETCH_ASSOC);
 $query2 = $pdo->prepare("SELECT enchere.`prix-propose`,enchere.`date`,utilisateur.`nom`,utilisateur.`prenom` 
 FROM `enchere`
 JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id
-WHERE utilisateur.id = 1;");
+WHERE annonce_id = :id;");
+$query2->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
 
 $query2->execute();
 
@@ -59,8 +63,7 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
             foreach ($encheres as $key => $value){ ?>               
             <p>Prix de départ: <?=$value["prix-propose"];?></p>               
             <p>Date de fin de l'enchère: <?=$value["date"];?></p>
-            <p>Modele: <?=$value["nom"];?></p>
-            <p>Marque: <?=$value["prenom"];?></p>
+            <p>Enchère de: <?=$value["nom"]." ". $value["prenom"];?></p>
            <?php } ?>
         </li>
     </ul>
@@ -71,36 +74,31 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
 
 
     <h2>Formulaire pour proposer une enchère</h2>
-
-    <form action="PageEnchere.php" method="post">
-        <p>
-            <label for="prixPropose">Prix proposer</label>
-            <input type="text" name="prixPropose" id="prixPropose">
-        </p>
-        <p>
-            <label for="dateD">Date de fin de l'enchère</label>
-            <input type="date" name="dateD" id="dateD">
-        </p>
-
-
-        <label for="utilisateurId">Utilisateur</label>
-        <select name="utilisateurId" id="utilisateurId">
-            <?php foreach ($utilisateurs as $key =>$value){ ?>
-                <option value="<?=$value["id"]?>"><?=$value["nom"]." ".$value["prenom"]  ?></option>
-        <?php } ?>
-        </select>
-
-        <label for="annonceId">Annonce</label>
-        <select name="annonceId" id="annonceId">
-            <?php foreach ($annonces as $key =>$value){ ?>
-                <option value="<?=$value["id"]?>"><?=$value["prix-depart"]."€  jusqu'au ".$value["date-fin"] ?></option>
-        <?php } ?>
-        </select>
-        <p>
-            <input type="submit" value="Proposer" name="submitEnchere">
-        </p>
+    <?php
+    if(isset($_SESSION["id_utilisatateur"])) { ?>
+        <form action="PageEnchere.php?id=<?= $_GET["id"]?>" method="post">
+            <p>
+                <label for="prixPropose">Prix proposer</label>
+                <input type="text" name="prixPropose" id="prixPropose">
+            </p>
+            <p>
+                <label for="dateD">Date de fin de l'enchère</label>
+                <input type="date" name="dateD" id="dateD">
+            </p>
+    
+    
+    
+            <p>
+                <input type="submit" value="Proposer" name="submitEnchere">
+            </p>
+            
+        </form>
         
-    </form>
+    <?php } else { ?>
+        <a href="connexion.php">Connectez vous </a>
+    <?php }
+    ?>
+
 
 
     <?php 
@@ -108,7 +106,7 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
 
         if(isset($_POST["submitEnchere"])){
 
-            if($resultat){
+            if($resultat4){
                 echo '<p class="confirm">Enchère rajouter</p>';
             } else {
                 echo "Erreur lors de l'ajout de l'enchère";
