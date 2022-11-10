@@ -1,6 +1,7 @@
 <?php 
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/voiture.php";
+require __DIR__."/classes/session.php";
 
 
 
@@ -56,8 +57,11 @@ require __DIR__."/classes/voiture.php";
                         <option value="<?=$value["id"]?>"><?=$value["nom"]." ".$value["prenom"] ?></option>
                     <?php } ?>
                     </select>
+                    <p>
+                        <input type="submit" value="Ajouter" name="submitVoiture">
+                    </p>
     
-                    <input type="submit" value="Ajouter" name="submitVoiture">
+                    
 
                    
                     
