@@ -4,6 +4,7 @@ require __DIR__."/classes/voiture.php";
 
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,7 @@ require __DIR__."/classes/voiture.php";
         <div class="form-css1">
             <h1>AJOUTER VOITURE</h1>
             <div class="form-position">
+         <?php   if(isset($_SESSION["id_utilisatateur"])) { ?>
                 <form action="PageVoiture.php" method="post">
                     
                     <p> 
@@ -42,17 +44,23 @@ require __DIR__."/classes/voiture.php";
     
                     <p>
                     <label for="annee">Date de la voiture</label>
-                    <input type="text" name="annee" id="annee">
+                    <input type="datetime" name="annee" id="annee">
                     </p>
     
                     <p>
                     <label for="description">Description</label>
                     <input type="text" name="description" id="description">
-                    </p>
-    
-                    <p>
+                    
                         <input type="submit" value="Ajouter" name="submitVoiture">
                     </p>
+    
+                    <?php } else { ?>
+        <a href="connexion.php">Connectez vous </a>
+    <?php }
+    ?> 
+
+                   
+                    
     
                 </form>
             </div>
@@ -66,12 +74,13 @@ require __DIR__."/classes/voiture.php";
 
         if(isset($_POST["submitVoiture"])){
 
-            if($resultat){
-                echo "Enchère rajouté";
+            if($resultat5){
+                echo "Voiture rajouté";
             } else {
-                echo "Erreur lors de l'ajout de l'enchère";
+                echo "Erreur ";
             }
 
+            
         }
     ?>
 </body>
