@@ -1,6 +1,8 @@
 *{
     box-sizing: border-box;
+
 }
+
 body{
    
     margin: 0px;
@@ -8,24 +10,16 @@ body{
     padding: 0%;
 }
 
-
-nav{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    
-}
 ul{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 nav{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     background-color: transparent;
     list-style-type: none;
     width: 100vw;
@@ -34,10 +28,15 @@ nav{
     align-items: center;
     align-content: center;
 }
-p{
+nav h1{
+    font-family: 'Playfair Display', serif; ;
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+ul p{
     display: flex;
     flex-direction: row;
-    font-size: x-large;
+    font-size: larger;
     justify-content: space-between;
     text-shadow: 1px 1px 0px white;
     color: black;

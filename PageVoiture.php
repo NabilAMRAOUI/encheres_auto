@@ -18,8 +18,8 @@ require __DIR__."/classes/voiture.php";
     </header>
     
     <section>
-        <h1>AJOUTER VOITURE</h1>
         <div class="form-css1">
+            <h1>AJOUTER VOITURE</h1>
             <div class="form-position">
                 <form action="PageVoiture.php" method="post">
                     
