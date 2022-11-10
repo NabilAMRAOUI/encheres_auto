@@ -10,21 +10,8 @@ if (isset($_SESSION['id_utilisatateur'])) {
 }
 
 
-$query1 = $pdo->prepare("SELECT * FROM `voiture` ORDER BY marque ASC");
-$resultat = $query1->execute();
-$voitures = $query1->fetchAll(PDO::FETCH_ASSOC);
-if(isset($_POST["submitAnnonce"])){
 
 
-
-    $query = $pdo->prepare("INSERT INTO annonce (prix-depart, date-fin,voiture_id) VALUES (:prix_depart,:date_fin,:voiture_id)");
-    $query->bindValue(':prix_depart',$_POST["prixDepart"],PDO::PARAM_INT);
-    $query->bindValue(':date_fin',$_POST["dateFin"],PDO::PARAM_INT);
-    $query->bindValue(':voiture_id',$_POST["voiture_id"],PDO::PARAM_INT);
-    $annonces = $query->execute();
-
-  
-}
 
 ?>
 
@@ -72,43 +59,6 @@ if(isset($_POST["submitAnnonce"])){
             
         </form>
 
-
-
-
-    </div>
-    <div class="form-position">
-        <h2>Formulaire pour proposer une enchère</h2>
-
-        <form action="ajouter-annonce-enchere.php" method="post">
-            <p>
-                <label for="prixPropose">Prix proposer</label>
-                <input type="text" name="prixPropose" id="prixPropose">
-            </p>
-            <p>
-                <label for="dateD">Date de fin de l'enchère</label>
-                <input type="date" name="dateD" id="dateD">
-            </p>
-
-
-            <label for="utilisateurId">Utilisateur</label>
-            <select name="utilisateurId" id="utilisateurId">
-                <?php foreach ($utilisateurs as $key =>$value){ ?>
-                    <option value="<?=$value["id"]?>"><?=$value["nom"]." ".$value["prenom"]  ?></option>
-            <?php } ?>
-            </select>
-
-            <label for="annonceId">Annonce</label>
-            <select name="annonceId" id="annonceId">
-                <?php foreach ($annonces as $key =>$value){ ?>
-                    <option value="<?=$value["id"]?>"><?=$value["prix-depart"]."€  jusqu'au ".$value["date-fin"] ?></option>
-            <?php } ?>
-            </select>
-            <p>
-                <input type="submit" value="Proposer" name="submitEnchere">
-            </p>
-            
-        </form>
-
     </div>
    
   
@@ -120,7 +70,7 @@ if(isset($_POST["submitAnnonce"])){
     <?php 
         if(isset($_POST["submitAnnonce"])){
 
-            if($annonces){
+            if($resultat){
                 echo "Annonce rajouter";
             } else {
                 echo "Erreur lors de l'ajout de l'annonce";
