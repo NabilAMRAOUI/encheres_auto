@@ -19,14 +19,14 @@ ul{
 nav{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     background-color: transparent;
     list-style-type: none;
     width: 100vw;
     margin-top: 0px;
     margin-bottom: 0px;
     align-items: center;
-    align-content: center;
+    align-content: space-between;
 }
 nav h1{
     font-family: 'Playfair Display', serif; ;
@@ -38,6 +38,7 @@ ul p{
     flex-direction: row;
     font-size: larger;
     justify-content: space-between;
+    
     text-shadow: 1px 1px 0px white;
     color: black;
     height: 10vh;
@@ -48,8 +49,12 @@ ul p{
 
 
 a{
+    display: flex;
+    flex-direction: row;
     text-decoration: none;
     color: black;
+    justify-content: space-between;
+    align-content: space-between;
     
     
 }
@@ -63,12 +68,10 @@ a:hover {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    align-content: center;
-    justify-content: center;
+    align-content: space-around;
+    justify-content: space-around;
 }
-.main{
-    width: 100vw;
-}
+
 .img-container{
     background-image: url(../img/vente-aux-encheres1-vectorfusionart-stockadobe-com-960x640.jpg);
     background-size: cover;
@@ -82,6 +85,7 @@ a:hover {
     flex-direction: column;
     font-size: xx-large;
     justify-content: center;
+    align-content: center;
     align-items: center;
     height: 600px;
     text-shadow: 1px 1px 0px white;
