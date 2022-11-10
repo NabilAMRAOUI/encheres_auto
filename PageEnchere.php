@@ -2,7 +2,7 @@
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/annonce.php";
 require __DIR__."/classes/enchere.php";
-require __DIR__."/classes/session.php";
+
 
 var_dump($_SESSION);
 
@@ -85,8 +85,6 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
                 <label for="dateD">Date de fin de l'enchère</label>
                 <input type="date" name="dateD" id="dateD">
             </p>
-    
-    
     
             <p>
                 <input type="submit" value="Proposer" name="submitEnchere">
