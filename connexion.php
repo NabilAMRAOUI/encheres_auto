@@ -46,7 +46,7 @@ if(isset($_POST["submitConnexion"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -72,14 +72,7 @@ if(isset($_POST["submitConnexion"])){
    <?php
 
 
-// if (isset($_POST["submitConnexion"])) {
-//     $query = $pdo->prepare("SELECT  `nom`, `prenom` FROM `utilisateur` WHERE email = :email");
-//     $query->bindValue(':email',$_POST["email"],PDO::PARAM_STR);
-//     $query->execute();
-//     $bienvenue = $query->fetch(PDO::FETCH_ASSOC);
-//     echo 'Bonjour ' .$_SESSION['nom']. ',
-//      ' .$_SESSION['prenom'];
-// }
+
 ?>
 
 

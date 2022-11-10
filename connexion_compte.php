@@ -1,15 +1,15 @@
 <?php
-require __DIR__."/classes/session.php";
+require __DIR__."/classes/pdo.php";
 
 
 
-
-    session_destroy();
-unset($_SESSION);
-header('Location: index.php');
 
 
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +20,8 @@ header('Location: index.php');
     <title>Document</title>
 </head>
 <body>
-
+<?php 
+require __DIR__."/inscription_compte.php";
+?>
 </body>
 </html>

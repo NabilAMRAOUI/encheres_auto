@@ -1,6 +1,9 @@
 <?php 
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/voiture.php";
+require __DIR__."/classes/session.php";
+
+
 
 ?>
 <!DOCTYPE html>
@@ -9,7 +12,7 @@ require __DIR__."/classes/voiture.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="Css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,8 +21,8 @@ require __DIR__."/classes/voiture.php";
     </header>
     
     <section>
-        <h1>AJOUTER VOITURE</h1>
         <div class="form-css1">
+            <h1>AJOUTER VOITURE</h1>
             <div class="form-position">
                 <form action="PageVoiture.php" method="post">
                     
@@ -50,12 +53,18 @@ require __DIR__."/classes/voiture.php";
     
                     <label for="utilisateur_id">utilisateur_id</label>
                     <select name="utilisateur_id" id="utilisateur_id">
-                    <?php foreach ($utilisateurs as $key =>$value){ ?>
+                    <?php foreach ($_SESSION[$utilisateurs] as $key =>$value){ ?>
                         <option value="<?=$value["id"]?>"><?=$value["nom"]." ".$value["prenom"] ?></option>
                     <?php } ?>
                     </select>
+                    <p>
+                        <input type="submit" value="Ajouter" name="submitVoiture">
+                    </p>
     
-                    <input type="submit" value="Ajouter" name="submitVoiture">
+                    
+
+                   
+                    
     
                 </form>
             </div>
