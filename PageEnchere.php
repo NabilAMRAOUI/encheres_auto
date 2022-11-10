@@ -75,7 +75,7 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
 
     <h2>Formulaire pour proposer une enchère</h2>
     <?php
-    if(isset($_SESSION["id_utilisatateur"])) { ?>
+    if(isset($_SESSION["id_utilisateur"])) { ?>
         <form action="PageEnchere.php?id=<?= $_GET["id"]?>" method="post">
             <p>
                 <label for="prixPropose">Prix proposer</label>

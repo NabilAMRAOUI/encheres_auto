@@ -5,7 +5,7 @@ require __DIR__."/classes/session.php";
 require __DIR__."/classes/annonce.php";
 
 
-if (isset($_SESSION['id_utilisatateur'])) {
+if (isset($_SESSION['id_utilisateur'])) {
     echo 'utilsateur connecté';
 }
 

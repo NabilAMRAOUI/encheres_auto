@@ -1,21 +1,38 @@
 <?php
 require __DIR__.'/pdo.php';
-$query3 = $pdo->prepare("SELECT * FROM `utilisateur` ORDER BY nom ASC");
-$query3->execute();
 
-$utilisateurs = $query3->fetchAll(PDO::FETCH_ASSOC);
+class Utilisateur {
 
-if(isset($_POST["submitInscription"])){
+    private string $nom;
+    private string $prenom;
+    private string $email;
+    private string $mdp;
     
 
-    $query3 = $pdo->prepare("INSERT INTO `utilisateur` (`nom`, `prenom`, `email`, `mdp`) VALUES (':nom', ':prenom', ':email', ':mdp');");
-    $query3->bindValue(':nom',$_POST["nom"],PDO::PARAM_STR);
-    $query3->bindValue(':prenom',$_POST["prenom"],PDO::PARAM_STR);
-    $query3->bindValue(':email',$_POST["email"],PDO::PARAM_STR);
-    $query3->bindValue(':mdp',$_POST["mdp"],PDO::PARAM_STR);
-    $utilisateur = $query3->execute();
+    public function __construct(string $nom,string $prenom,string $email,string $mdp)
+    {
+        
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->email = $email;
+        $this->mdp = $mdp;
+    }
 
-    var_dump($utilisateur);
+    public function insertUtilisateurs($pdo) {
+        $query7 = $pdo->prepare("INSERT INTO `utilisateur` (`nom`, `prenom`, `email`, `mdp`) VALUES (:nom, :prenom, :email, :mdp)");
+        $query7->bindValue(':nom',$this->nom,PDO::PARAM_STR);
+        $query7->bindValue(':prenom',$this->prenom,PDO::PARAM_STR);
+        $query7->bindValue(':email',$this->email,PDO::PARAM_STR);
+        $query7->bindValue(':mdp', password_hash($this->mdp, PASSWORD_DEFAULT) ,PDO::PARAM_STR);
+        return $query7->execute();
+    
+        
+    }
+
+
 }
+
+
+
 
 ?>

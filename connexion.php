@@ -19,7 +19,8 @@ if(isset($_POST["submitConnexion"])){
 
         if (password_verify($_POST['mdp'] ,$hash)) {
             echo "Mots de passe  valide";
-            $_SESSION["id_utilisatateur"] = $utilisateur["id"];
+            header('Location: index.php');
+            $_SESSION["id_utilisateur"] = $utilisateur["id"];
             $_SESSION["email_utilisateur"] = $utilisateur["email"];
 
 
