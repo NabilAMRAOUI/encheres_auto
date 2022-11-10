@@ -1,7 +1,6 @@
 <?php
-require __DIR__.'/pdo.php';
 require __DIR__.'/utilisateurs.php';
-require __DIR__."/session.php";
+
 $query3 = $pdo->prepare("SELECT * FROM `voiture` ORDER BY marque ASC");
 $query3->execute();
 
