@@ -13,6 +13,15 @@ $query->execute();
 
 $annonce = $query->fetch(PDO::FETCH_ASSOC);
 
+$query2 = $pdo->prepare("SELECT enchere.`prix-propose`,enchere.`date`,utilisateur.`nom`,utilisateur.`prenom` 
+FROM `enchere`
+JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id
+WHERE utilisateur.id = 1;");
+
+$query2->execute();
+
+$encheres = $query2->fetch(PDO::FETCH_ASSOC);
+
 
 
 ?>
@@ -34,7 +43,7 @@ $annonce = $query->fetch(PDO::FETCH_ASSOC);
     </header>
 
     
-
+    <h2>Annonce selectionner</h2>
     <p>Prix de départ: <?=$annonce["prix-depart"];?></p>               
     <p>Date de fin de l'enchère: <?=$annonce["date-fin"];?></p>
     <p>Modele: <?=$annonce["modele"];?></p>
@@ -42,6 +51,19 @@ $annonce = $query->fetch(PDO::FETCH_ASSOC);
     <p>Puissance: <?=$annonce["puissance"];?></p>
     <p>Annee: <?=$annonce["annee"];?></p>
     <p>Description: <?=$annonce["description"];?></p>
+
+    <h2>Les enchères en cours </h2>
+    <ul>
+        <li>
+            <?php
+            foreach ($encheres as $key => $value){ ?>               
+            <p>Prix de départ: <?=$value["prix-propose"];?></p>               
+            <p>Date de fin de l'enchère: <?=$value["date"];?></p>
+            <p>Modele: <?=$value["nom"];?></p>
+            <p>Marque: <?=$value["prenom"];?></p>
+           <?php } ?>
+        </li>
+    </ul>
 
 
 
