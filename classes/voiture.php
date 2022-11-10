@@ -1,10 +1,6 @@
 <?php
-require __DIR__.'/pdo.php';
 require __DIR__.'/utilisateurs.php';
 require __DIR__."/session.php";
-
-
-
 
 
 if(isset($_POST["submitVoiture"])){
