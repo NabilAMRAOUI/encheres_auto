@@ -1,16 +1,12 @@
 <?php 
-require __DIR__."/classes/pdo.php";
+
+require __DIR__."/classes/utilisateurs.php";
 
 
-if(isset($_POST["submitInscription"])){
-  
-  $query3 = $pdo->prepare("INSERT INTO `utilisateur`( `nom`, `prenom`, `email`,`mdp`) VALUES (:nom,:prenom,:email,:mdp)");
-$query3->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
-$query3->bindValue(':prenom', $_POST["prenom"],PDO::PARAM_STR);
-$query3->bindValue(':email', $_POST["email"],PDO::PARAM_STR);
-$query3->bindValue(':mdp',  password_hash($_POST["mdp"], PASSWORD_DEFAULT),PDO::PARAM_STR);
-$resultat = $query3->execute();
 
+if (isset($_POST['submitInscription'])) {
+  $user = new Utilisateur($_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["mdp"]);
+  $nvUtilisateur = $user->insertUtilisateurs($pdo);
 }
 
 
@@ -29,11 +25,11 @@ $resultat = $query3->execute();
         <?php require __DIR__."/classes/navBar.php" ?>
     </header>
 <div>
-    <form action="" method="post">
-    <label for=""> Inscription</label>
+    <form action="inscription.php" method="post">
+    <label for="">Inscription</label>
 
     <label for="">
-        Nom <input type="text" name="nom">
+        Nom <input type="text"  name="nom">
     </label>
 
     <label for="">
@@ -52,7 +48,7 @@ $resultat = $query3->execute();
 
    <?php
 if (isset($_POST["submitInscription"])) {
-  if ($resultat) {
+  if ($nvUtilisateur) {
     echo "Bienvenue";
   }else{
 echo "Erreur";

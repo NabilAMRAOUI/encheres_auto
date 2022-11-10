@@ -95,6 +95,7 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
 
     <h2>Formulaire pour proposer une enchère</h2>
     <?php
+    if(isset($_SESSION["id_utilisateur"])) { ?>
     if(isset($_SESSION["id_utilisatateur"]) && $annonce["date-fin"] > date("Y-m-d H:i:s") ) { ?>
         <form action="PageEnchere.php?id=<?= $_GET["id"]?>" method="post">
             <p>
