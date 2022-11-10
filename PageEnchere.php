@@ -20,7 +20,7 @@ WHERE utilisateur.id = 1;");
 
 $query2->execute();
 
-$encheres = $query2->fetch(PDO::FETCH_ASSOC);
+$encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -52,7 +52,7 @@ $encheres = $query2->fetch(PDO::FETCH_ASSOC);
     <p>Annee: <?=$annonce["annee"];?></p>
     <p>Description: <?=$annonce["description"];?></p>
 
-    <h2>Les enchères en cours </h2>
+    <h2>Les enchères en cours de l'annonce</h2>
     <ul>
         <li>
             <?php
