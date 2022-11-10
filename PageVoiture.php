@@ -2,6 +2,8 @@
 require __DIR__."/classes/pdo.php";
 require __DIR__."/classes/voiture.php";
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,12 +52,15 @@ require __DIR__."/classes/voiture.php";
     
                     <label for="utilisateur_id">utilisateur_id</label>
                     <select name="utilisateur_id" id="utilisateur_id">
-                    <?php foreach ($utilisateurs as $key =>$value){ ?>
+                    <?php foreach ($_SESSION[$utilisateurs] as $key =>$value){ ?>
                         <option value="<?=$value["id"]?>"><?=$value["nom"]." ".$value["prenom"] ?></option>
                     <?php } ?>
                     </select>
     
                     <input type="submit" value="Ajouter" name="submitVoiture">
+
+                   
+                    
     
                 </form>
             </div>

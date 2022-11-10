@@ -10,13 +10,7 @@ $query->execute();
 
 $annonces = $query->fetchAll(PDO::FETCH_ASSOC);
 
-$query4 = $pdo->prepare("SELECT * 
-FROM `annonce`
-JOIN voiture ON annonce.voiture_id = voiture.id;");
 
-$query->execute();
-
-$annonces = $query->fetchAll(PDO::FETCH_ASSOC);
 
    
 ?>
