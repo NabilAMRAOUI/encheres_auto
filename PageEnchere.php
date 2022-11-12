@@ -1,10 +1,6 @@
 <?php
 require __DIR__."/classes/pdo.php";
-require __DIR__."/classes/annonce.php";
-require __DIR__."/classes/enchere.php";
 
-
-var_dump($_SESSION);
 
 $query = $pdo->prepare("SELECT annonce.`id`,annonce.`prix-depart`,annonce.`date-fin`,annonce.voiture_id,voiture.marque,voiture.modele,voiture.puissance,voiture.annee,voiture.description
 FROM `annonce`
@@ -24,11 +20,11 @@ if(isset($_POST["submitEnchere"])){
     if ($_POST["prixPropose"] > $annonce["prix-depart"]) {
         echo "prix correct";
         $query4 = $pdo->prepare("INSERT INTO `enchere` (`prix-propose`, `date`,`utilisateur_id`,`annonce_id`) VALUES (:prixPropose,:dateD,:utilisateurId,:annonceId)");
-    $query4->bindValue(':prixPropose',$_POST["prixPropose"],PDO::PARAM_INT);
-    $query4->bindValue(':dateD',date("Y-m-d H:i:s"),PDO::PARAM_STR);
-    $query4->bindValue(':utilisateurId',$_SESSION["id_utilisatateur"],PDO::PARAM_INT);
-    $query4->bindValue(':annonceId',$_GET["id"],PDO::PARAM_INT);
-    $resultat4 = $query4->execute();
+        $query4->bindValue(':prixPropose',$_POST["prixPropose"],PDO::PARAM_INT);
+        $query4->bindValue(':dateD',date("Y-m-d H:i:s"),PDO::PARAM_STR);
+        $query4->bindValue(':utilisateurId',$_SESSION["id_utilisatateur"],PDO::PARAM_INT);
+        $query4->bindValue(':annonceId',$_GET["id"],PDO::PARAM_INT);
+        $resultat4 = $query4->execute();
      }else {
          echo "incorrect";
      }
