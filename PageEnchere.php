@@ -127,10 +127,7 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
     <?php }
     if ($annonce["date-fin"] < date("Y-m-d H:i:s")) {?>
            <p> Enchère Fini </p>    
-           <p><?=$gagnant["MAX(`prix-propose`)"]?></p>
-           <p><?=var_dump($gagnant)?></p>
-           <p><?=$gagnant["nom"]?></p>
-           <p><?=$gagnant["prenom"]?></p>
+           <p><?="Le gagnant de l'enchère est ".$gagnant["nom"]." ".$gagnant["prenom"]." avec une enchère de ".$gagnant["MAX(`prix-propose`)"]." €"?></p>
       <?php   
     }
     ?>
