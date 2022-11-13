@@ -1,34 +1,40 @@
 <?php
 require __DIR__."/classes/pdo.php";
-require __DIR__."/classes/annonce.php";
-require __DIR__."/classes/enchere.php";
 
-
-var_dump($_SESSION);
 
 $query = $pdo->prepare("SELECT annonce.`id`,annonce.`prix-depart`,annonce.`date-fin`,annonce.voiture_id,voiture.marque,voiture.modele,voiture.puissance,voiture.annee,voiture.description
 FROM `annonce`
 JOIN voiture ON annonce.voiture_id = voiture.id
 WHERE annonce.id = :id;");
 $query->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
-
 $query->execute();
-
 $annonce = $query->fetch(PDO::FETCH_ASSOC);
-$query6 = $pdo->prepare ("SELECT MAX(`prix-propose`) FROM `enchere`JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id WHERE `annonce_id` = :id") ;
+
+$query6 = $pdo->prepare ("SELECT MAX(`prix-propose`) FROM `enchere`JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id WHERE `annonce_id` = :id, :nom") ;
 $gagnant = $query6->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
 $query6->execute();
 
+
+
+$query6 = $pdo->prepare ("SELECT  utilisateur_id, utilisateur.nom, utilisateur.prenom FROM `enchere`
+JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id
+WHERE utilisateur_id = :id") ;
+$gagnant2 = $query6->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
+$query6->execute();
+
+
+
 if(isset($_POST["submitEnchere"])){
-    
+     
+
     if ($_POST["prixPropose"] > $annonce["prix-depart"]) {
         echo "prix correct";
         $query4 = $pdo->prepare("INSERT INTO `enchere` (`prix-propose`, `date`,`utilisateur_id`,`annonce_id`) VALUES (:prixPropose,:dateD,:utilisateurId,:annonceId)");
-    $query4->bindValue(':prixPropose',$_POST["prixPropose"],PDO::PARAM_INT);
-    $query4->bindValue(':dateD',date("Y-m-d H:i:s"),PDO::PARAM_STR);
-    $query4->bindValue(':utilisateurId',$_SESSION["id_utilisatateur"],PDO::PARAM_INT);
-    $query4->bindValue(':annonceId',$_GET["id"],PDO::PARAM_INT);
-    $resultat4 = $query4->execute();
+        $query4->bindValue(':prixPropose',$_POST["prixPropose"],PDO::PARAM_INT);
+        $query4->bindValue(':dateD',date("Y-m-d H:i:s"),PDO::PARAM_STR);
+        $query4->bindValue(':utilisateurId',$_SESSION["id_utilisatateur"],PDO::PARAM_INT);
+        $query4->bindValue(':annonceId',$_GET["id"],PDO::PARAM_INT);
+        $resultat4 = $query4->execute();
      }else {
          echo "incorrect";
      }
@@ -97,7 +103,8 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
     <?php
     if(isset($_SESSION["id_utilisateur"])) { ?>
     if(isset($_SESSION["id_utilisatateur"]) && $annonce["date-fin"] > date("Y-m-d H:i:s") ) { ?>
-        <form action="PageEnchere.php?id=<?= $_GET["id"]?>" method="post">
+       
+       <form action="PageEnchere.php?id=<?= $_GET["id"]?>" method="post">
             <p>
                 <label for="prixPropose">Prix proposer</label>
                 <input type="text" name="prixPropose" id="prixPropose">
@@ -116,7 +123,7 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
     <?php }
     if ($annonce["date-fin"] < date("Y-m-d H:i:s")) {?>
            <p> Enchère Fini </p>  
-           <p><?php  ?></p>
+           <p><?php var_dump($gagnant) ?></p>
       <?php   
     }
     ?>
