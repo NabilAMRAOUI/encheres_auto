@@ -10,9 +10,13 @@ $query->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
 $query->execute();
 $annonce = $query->fetch(PDO::FETCH_ASSOC);
 
-$query6 = $pdo->prepare ("SELECT MAX(`prix-propose`) FROM `enchere`JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id WHERE `annonce_id` = :id, :nom") ;
-$gagnant = $query6->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
+$query6 = $pdo->prepare ("SELECT MAX(`prix-propose`), utilisateur.prenom, utilisateur.nom
+FROM `enchere`
+JOIN utilisateur ON enchere.utilisateur_id = utilisateur.id 
+WHERE enchere.id = :id") ;
+$query6->bindValue(":id",$_GET["id"],PDO::PARAM_INT);
 $query6->execute();
+$gagnant = $query6->fetch(PDO::FETCH_ASSOC);
 
 
 
@@ -122,8 +126,11 @@ $encheres = $query2->fetchAll(PDO::FETCH_ASSOC);
       
     <?php }
     if ($annonce["date-fin"] < date("Y-m-d H:i:s")) {?>
-           <p> Enchère Fini </p>  
-           <p><?php var_dump($gagnant) ?></p>
+           <p> Enchère Fini </p>    
+           <p><?=$gagnant["MAX(`prix-propose`)"]?></p>
+           <p><?=var_dump($gagnant)?></p>
+           <p><?=$gagnant["nom"]?></p>
+           <p><?=$gagnant["prenom"]?></p>
       <?php   
     }
     ?>
