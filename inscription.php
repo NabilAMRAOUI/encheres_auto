@@ -23,41 +23,52 @@ if (isset($_POST['submitInscription'])) {
 <body>
     
         <?php require __DIR__."/classes/navBar.php" ?>
-    
-<div>
-    <form action="inscription.php" method="post">
-    <label for="">Inscription</label>
+<div class="form-css1">
+  <h2>Inscription</h2>
+  <div class="form-position">
+        <form action="inscription.php" method="post">
+        
+        <p>
+          <label for="">
+            Nom <input type="text"  name="nom">
+          </label>
+        </p>
+        
+        <p>
+          <label for="">
+            Prénom   <input type="text" name="prenom">
+          </label>
+        </p>
+        <p>
+          <label for="">
+            Email  <input type="text" name="email">
+          </label>
 
-    <label for="">
-        Nom <input type="text"  name="nom">
-    </label>
+        </p>
+        <p>
+          <label for="">
+            Mot de passe  <input type="text" name="mdp">
+          </label>
+        </p>
+        <p>
+          <input type="submit"  name="submitInscription">
+        </p>
+      </form>
 
-    <label for="">
-      Prénom   <input type="text" name="prenom">
-    </label>
+      <?php
+    if (isset($_POST["submitInscription"])) {
+      if ($nvUtilisateur) {
+        echo "Bienvenue";
+      }else{
+    echo "Erreur";
 
-    <label for="">
-      Email  <input type="text" name="email">
-    </label>
-
-    <label for="">
-      Mot de passe  <input type="text" name="mdp">
-    </label>
-    <input type="submit"  name="submitInscription">
-   </form>
-
-   <?php
-if (isset($_POST["submitInscription"])) {
-  if ($nvUtilisateur) {
-    echo "Bienvenue";
-  }else{
-echo "Erreur";
-
-  }
-}
-?>
+      }
+    }
+    ?>
 
 
-</div>
+    </div>
+</div>    
+  
 </body>
 </html>

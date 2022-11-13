@@ -22,7 +22,7 @@ if (isset($_SESSION['id_utilisateur'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
@@ -31,12 +31,12 @@ if (isset($_SESSION['id_utilisateur'])) {
 
 
     <div class="text-annonce">
-    <h1>Ajouter une annonce ou proposer une enchère</h1>
+    
     
 </div>
-<div class="form-css" >
+<div class="form-css1" >
+    <h2>Formulaire pour ajouter une annonce</h2>
     <div class="form-position">
-        <h2>Formulaire pour ajouter une annonce</h2>
         <form action="ajouter-annonce-enchere.php" method="post">
             <p>
                 <label for="prixDepart">Prix de départ</label>
@@ -46,13 +46,15 @@ if (isset($_SESSION['id_utilisateur'])) {
                 <label for="dateFin">Date de fin de l'enchère</label>
                 <input type="date" name="dateFin" id="dateFin">
             </p>
-
-            <label for="voiture_id">Marque et modele de voiture</label>
-            <select name="voiture_id" id="voiture_id">
+            <p>
+                <label for="voiture_id">Marque et modele de voiture</label>
+                <select name="voiture_id" id="voiture_id">
                 <?php foreach ($voitures as $key =>$value){ ?>
                     <option value="<?=$value["id"]?>"><?=$value["marque"]." ".$value["modele"] ?></option>
-            <?php } ?>
-            </select>
+                <?php } ?>
+                </select>
+            </p>
+            
             <p>
                 <input type="submit" value="Ajouter" name="submitAnnonce">
             </p>

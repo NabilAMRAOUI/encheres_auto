@@ -21,7 +21,7 @@ $annonces = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
@@ -30,25 +30,48 @@ $annonces = $query->fetchAll(PDO::FETCH_ASSOC);
     
     <br>
     <div class="annonce-li">
-        <ul>
-            <li>
+            <ul class="annonce">
+            
                 <?php
                 foreach ($annonces as $key => $value){ ?>               
-                <p>Prix de départ: <?=$value["prix-depart"];?></p>               
-                <p>Date de fin de l'enchère: <?=$value["date-fin"];?></p>
-                <p>Modele: <?=$value["modele"];?></p>
-                <p>Marque: <?=$value["marque"];?></p>
-                <p>Puissance: <?=$value["puissance"];?></p>
-                <p>Annee: <?=$value["annee"];?></p>
-                <p>Description: <?=$value["description"];?></p>
-                <a href="PageEnchere.php?id=<?= $value['id']?>">Afficher</a>
+                <li>
+                    <p>Prix de départ:</p> 
+                    <p><?=$value["prix-depart"];?></p> 
+                </li>
+                <li>
+                    <p>Date de fin de l'enchère:</p> 
+                    <p><?=$value["date-fin"];?></p>
+                </li> 
+                <li>
+                    <p>Modele:</p> 
+                    <p><?=$value["modele"];?></p>
+                </li>             
+                <li>
+                    <p>Marque:</p>
+                    <p><?=$value["marque"];?></p>
+                </li>
+                <li>
+                    <p>Puissance:</p> 
+                    <p><?=$value["puissance"];?></p>
+                </li>
+                <li>
+                    <p>Annee:</p> 
+                    <p><?=$value["annee"];?></p>
+                </li>
+                <li>
+                    <p>Description:</p> 
+                    <p><?=$value["description"];?></p>
+                </li>
+                <li>
+                   <p><a href="PageEnchere.php?id=<?= $value['id']?>">Afficher</a></p> 
+                </li>
+                
+            </ul>
             <?php } ?>
-            </li>
-        </ul>
-    </div>
+        </div>
 
     <div class="block-annonce">
-        <h1>AJOUTER UNE ANNONCE</h1>
+        <h2>Ajouter une Annonce</h2>
         <button><a href="ajouter-annonce-enchere.php">Ajouter une annonce</a></button>
     </div>
     

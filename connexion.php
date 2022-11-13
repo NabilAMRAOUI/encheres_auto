@@ -47,28 +47,33 @@ if(isset($_POST["submitConnexion"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
     
         <?php require __DIR__."/classes/navBar.php" ?>
-    
-<div>
-    <form action="" method="post">
-    <label for=""> Connexion</label>
-
-   
-
-    <label for="">
-      Email  <input type="text" name="email">
-    </label>
-
-    <label for="">
-      Mot de passe  <input type="text" name="mdp">
-    </label>
-    <input type="submit"  name="submitConnexion">
-   </form>
+<div class="form-css1">
+    <h2>Connexion</h2>
+    <div class="form-position"> 
+        <form action="" method="post">
+        
+            <p>
+                <label for="">
+                Email  <input type="text" name="email">
+                </label>
+            </p>
+            <p>
+                <label for="">
+                Mot de passe  <input type="text" name="mdp">
+                </label>
+            </p>
+            <p>
+                <input type="submit"  name="submitConnexion">
+            </p>
+        </form>
+    </div>
+</div>    
 
    <?php
 

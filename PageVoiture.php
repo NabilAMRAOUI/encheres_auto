@@ -17,7 +17,7 @@ if (isset($_POST['submitVoiture'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Document</title>
     </head>
     <body>
@@ -27,7 +27,7 @@ if (isset($_POST['submitVoiture'])) {
         
         <section>
             <div class="form-css1">
-                <h1>AJOUTER VOITURE</h1>
+                <h2>Ajouter Voiture</h2>
                 <div class="form-position">
             <?php   if(isset($_SESSION["id_utilisateur"])) { ?>
                     <form action="PageVoiture.php" method="post">
@@ -55,8 +55,9 @@ if (isset($_POST['submitVoiture'])) {
                         <p>
                         <label for="description">Description</label>
                         <input type="text" name="description" id="description">
-                        
-                            <input type="submit" value="Ajouter" name="submitVoiture">
+                        </p>
+                        <p>
+                        <input type="submit" value="Ajouter" name="submitVoiture">
                         </p>
         
                         <?php } else { ?>
